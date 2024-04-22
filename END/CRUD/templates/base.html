@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookLog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <span class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo do BookAdder">
+            <p>BookLog</p>
+        </span>
+        <span id="homeButton">
+            <a href="{{ url_for('book.book_list') }}">Home</a></span>
+    </header>
+    <main>
+
+        {% block content %}{% endblock %}
+
+    </main>
+</body>
+</html>

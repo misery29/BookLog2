@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<h1>Edite o Livro</h1>
+<form method="POST" action="{{ url_for('book.book_edit',id=book.id) }}">
+    <div class="InputDiv">
+        <input type="text" id="titleInput" name="titulo" value="{{ book.titulo }}" placeholder="Insira o título do livro" required>
+        <input type="text" id="authorInput" name="autor" value="{{ book.autor }}" placeholder="Autor do livro" required>
+        <input type="text" id="genreInput" name="genero" value="{{ book.genero }}" placeholder="Gênero do livro" required>
+        <input type="number" id="ratingInput" name="avaliacao_media" value="{{ book.avaliacao_media }}" placeholder="Avaliação Média (0-10)" step="0.1" min="0" max="10" required>
+        <button type="submit">Atualizar Livro</button>
+    </div>
+</form>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

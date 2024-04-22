@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <h1>Livros Cadastrados</h1>
+    <div class="books-container">
+        {% if books %}
+            <ul class="books-list">
+                {% for book in books %}
+                    <li class="book-item">
+                        <h2>{{ book.titulo }}</h2>
+                        <p><strong>Autor:</strong> {{ book.autor }}</p>
+                        <p><strong>Gênero:</strong> {{ book.genero }}</p>
+                        <p><strong>Avaliação Média:</strong> {{ book.avaliacao_media }}</p>
+                        <div class="book-actions">
+                            <a href="{{url_for('book.book_edit', id=book.id)}}" class="btn btn-edit">Editar</a>
+                            <a href="{{url_for('book.book_delete', id=book.id)}}" class="btn btn-delete">Deletar</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum livro cadastrado.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
